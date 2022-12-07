@@ -64,7 +64,9 @@ if 0 < int(day_input) < 26:
     for part in range(1, 3):
         time_start = time.time()
         print("\n" + str(run(day_input, DATA, part)))
-        print(str((time.time() - time_start) * 1000) + " ms")
+        end_time = (time.time() - time_start) * 1000
+        print("{:.2f}".format(end_time) + " ms")
+        # print(end_time)
 else:
     print("Must be a number between 1 and 25")
 
