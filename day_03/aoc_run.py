@@ -1,10 +1,3 @@
-# CheatSheet: A - Z: 65 - 90
-#                    27 - 52
-#             a - z: 97 - 122
-#                    1 - 26
-# ord(char): convert char to integer
-# chr(int): convert integer to char
-
 def convert_priority(char):
     char_int = ord(char)
     if 64 < char_int < 91:
@@ -41,10 +34,10 @@ def part_1(raw_input):
 
 def part_2(raw_input):
     # More parsing
-
     priority_score = 0
 
     index = 0
+    # Use set to avoid duplicates
     while index < len(raw_input):
         letters_set = set()
         # Separate groups

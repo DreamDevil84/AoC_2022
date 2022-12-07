@@ -1,3 +1,5 @@
+# This could all be done in modulo for ever expanding options, but meh
+
 def convert(raw):
     # Create workable array
     rps_rounds = []
@@ -55,28 +57,20 @@ def part_1(raw_input):
             turn_score += score_paper
         elif my_choice == scissor:
             turn_score += score_scissor
-        # Painful if tree, check for draw first,
-        # Checking for loss is currently redundant since score for loss is 0, it's there in case loss value changes
+
+        # Painful if tree, check for draw first
         if opp_choice == my_choice:
             turn_score += score_draw
         elif opp_choice == rock:
             if my_choice == paper:
                 turn_score += score_win
-            # elif my_choice == scissor:
-            #     turn_score += score_loss
         elif opp_choice == paper:
             if my_choice == scissor:
                 turn_score += score_win
-            # elif my_choice == rock:
-            #     turn_score += score_loss
         elif opp_choice == scissor:
             if my_choice == rock:
                 turn_score += score_win
-            # elif my_choice == scissor:
-            #     turn_score += score_loss
-        # print('turn_score = ' + str(turn_score))
         total_score += turn_score
-    # print('total_score == ' + str(total_score))
 
     return total_score
 
