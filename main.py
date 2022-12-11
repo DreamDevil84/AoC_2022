@@ -27,7 +27,7 @@ import day_24.aoc_run
 import day_25.aoc_run
 
 
-def run(day, data_file, puzzle_part):
+def run(day, puzzle_part):
     day_string = ""
     if 0 < int(day) < 10:
         day_string += "0" + day
@@ -36,10 +36,10 @@ def run(day, data_file, puzzle_part):
 
     func_adr = 'day_' + day_string +\
                '.aoc_run.part_' + str(puzzle_part) +\
-               '(get_data("' + day_string + '", data_file))'
+               '(get_data("' + day_string + '"))'
 
-    def get_data(date, data_type):
-        datafile = open('day_' + date + '/' + data_type + '.txt')
+    def get_data(date):
+        datafile = open('inputs/day_' + date + '.txt')
         data = []
 
         for line in datafile:
@@ -52,24 +52,15 @@ def run(day, data_file, puzzle_part):
     return eval(func_adr)
 
 
-# sample is for the general data provided as part of the puzzle, development only
-# input is for the personal data provided
-# DATA = 'sample'
-DATA = 'input'
-
 print("Please enter a number between 1 and 25")
 day_input = input()
 
 if 0 < int(day_input) < 26:
     for part in range(1, 3):
         time_start = time.time()
-        print("\n" + str(run(day_input, DATA, part)))
+        print("\n" + str(run(day_input, part)))
         end_time = (time.time() - time_start) * 1000
         print("{:.2f}".format(end_time) + " ms")
         # print(end_time)
 else:
     print("Must be a number between 1 and 25")
-
-# For running specific parts, development only
-# print("\n" + str(run(day_input, DATA, 1)))
-# print("\n" + str(run(day_input, DATA, 2)))
